@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="./src/style.css" />
+
+		<title>Post | LinkedIn</title>
+	</head>
+	<body>
+		<article class="Post">
+			<!-- header -->
+			<header class="Post__header">
+				<span class="Post__author-avatar Avatar Avatar--square Avatar--large">
+					<img
+						src="/images/avatars/sunderland_software_city.jpg"
+						alt="Sunderland Software City logo"
+					/>
+				</span>
+
+				<!-- One column of poster data -->
+				<div class="Post__details">
+					<h2 class="Post__author">Sunderland Software City</h2>
+					<span class="Post__followers subtitle">4,584 followers</span>
+
+					<!-- this link ::after will stretch to the whole header  -->
+					<a href="#" class="Post__author-link">
+						<span class="vh">View Profile</span>
+					</a>
+
+					<!-- reused? its own block -->
+					<dl class="Metadata Post__metadata subtitle">
+						<dt class="vh Metadata__title">Posted date</dt>
+						<dd class="Metadata__description"><time datetime="2024-08-10">1mo</time></dd>
+						<dt class="vh Metadata__title">Post status</dt>
+						<dd class="Metadata__description">Edited</dd>
+						<dt class="vh Metadata__title">Visibility</dt>
+						<dd class="Metadata__description">
+							<img src="/images/icons/globe.svg" aria-hidden alt="" />
+							<span class="vh">Public</span>
+						</dd>
+					</dl>
+				</div>
+
+				<!-- button inside a div to containerize popup menu -->
+				<div class="PopupModal Post__options">
+					<button class="PopupModal__trigger" aria-hidden>
+						•••
+						<span class="vh">More options</span>
+					</button>
+					<div class="PopupModal__content vh">THIS IS THE POP UP MODAL</div>
+				</div>
+			</header>
+
+			<!-- main body of post -->
+			<div class="Post__content">
+				<p>We’re on a mission 🚀 Can you help?</p>
+				<p>
+					A shortage of entry-level opportunities is holding the North East back. This is why we're
+					proud to be trialing a new way of increasing the supply of tech talent.
+				</p>
+				<p>
+					We’re thrilled to welcome a new team of junior developers to Sunderland Software City. Our
+					talented recruits have a wealth of skills between them; from front-end focused experience
+					in React to back-end skills in Python, Java, full stack Node, NextJS and Android app
+					development.
+				</p>
+				<p>
+					A huge welcome to <a href="#">Ruben Odunze</a>, <a href="#">Andrei Marincas</a>,<a
+						href="#"
+						>Cemile B.</a
+					>, <a href="#">Ekrem Teke</a>, <a href="#">Shawn Anuptra Martin</a>,<a href="#"
+						>Kyle Thornton</a
+					>,<a href="#">Chris Coutts</a>,<a href="#">Laurie Hillier</a>,<a href="#"
+						>Phillip Hickinbotham</a
+					>
+				</p>
+				<p>
+					Our new team is part of an ambitious programme aimed at providing new opportunities into
+					the North East tech sector. This strategic initiative seeks to provide much-needed roles
+					for aspiring developers while fostering growth and innovation within the regional tech
+					ecosystem. As well as taking part in our tailored in-house programme, the cohort will be
+					working on real-life projects and are available to support external teams.
+				</p>
+				<p>
+					In need of technical support? Our team can help! 💻 Several small to large organisations
+					have already expressed interest and are excited about working with us on this project.
+				</p>
+				<p>
+					We’re inviting businesses to meet the team and chat about their talents. Do you need extra
+					support on projects? Or are you considering the future of your workforce? If so we’d love
+					to have a chat, drop our Skills Manager <a href="#">Caroline Williamson</a> a note to find
+					out more.
+				</p>
+				<p>
+					<a href="#">#techskills</a>
+					<a href="#"> #developers</a>
+					<a href="#"> #northeast</a>
+					<a href="#">#techsector</a>
+					<br />
+					<a href="#">Ben Mushen</a>
+					<a href="#">Jon Park</a>
+					<a href="#">Jill McKinney</a>
+				</p>
+			</div>
+
+			<figure class="Post__attachments Gallery">
+				<a href="#" class="Gallery__item">
+					<img
+						src="/images/attachments/1723114329582.jpg"
+						alt="A group picture of all the devs, sitting in a long table, smiling at the camera with their laptops out."
+					/>
+				</a>
+				<a href="#" class="Gallery__item">
+					<img
+						src="/images/attachments/1723114328360.jpg"
+						alt="A side picture of the devs working on their laptops, looking serious."
+					/>
+				</a>
+				<a href="#" class="Gallery__item">
+					<img
+						src="/images/attachments/1723114328255.jpg"
+						alt="A side picture of the devs working on their laptops, looking serious."
+					/>
+				</a>
+				<a href="#" class="Gallery__item Gallery__item--last" data-image-overflow="2">
+					<img
+						src="/images/attachments/1723114321030.jpg"
+						alt="Three developers, with one stood up on the left and the other two sitting down on small chair and tables. The developer on the left is talking to one of the developers sitting down. Both of the sat down devs are looking intently at their laptops."
+					/>
+				</a>
+			</figure>
+
+			<a href="#comment" class="vh">Skip to comment</a>
+			<!-- Reactions stats -->
+			<aside class="Post__interactions Interactions">
+				<a href="#" class="subtitle Interactions__likes">
+					<span class="Post__likes IconStack">
+						<img src="/images/icons/reaction-like.svg" alt="" aria-hidden />
+						<img src="/images/icons/reaction-celebrate.svg" alt="" aria-hidden />
+						<img src="/images/icons/reaction-love.svg" alt="" aria-hidden />
+					</span>
+					<span>Cemile Balkas and 106 others</span>
+				</a>
+				<div class="Interactions__socials">
+					<span><a href="#" class="subtitle">4 comments</a></span>
+					<span><a href="#" class="subtitle">13 reposts</a></span>
+				</div>
+			</aside>
+
+			<!-- REACTIONS -->
+			<aside class="Reactions Post__reactions">
+				<h3 class="Reactions__title">Reactions</h3>
+				<a href="#comment" class="vh">Skip to comment</a>
+
+				<!-- the reactions with icons -->
+				<ol class="Reactions__list">
+					<li class="Reactions__listItem">
+						<a href="#" class="Reaction">
+							<span class="Avatar Avatar--large Reaction__avatar">
+								<img src="/images/avatars/1673478723077.jpg" alt="" aria-hidden />
+							</span>
+							<img
+								class="Reaction__icon"
+								src="/images/icons/reaction-celebrate.svg"
+								alt=""
+								aria-hidden
+							/>
+							<span class="vh">Kyle celebrated this post.</span>
+						</a>
+					</li>
+					<li class="Reactions__listItem">
+						<a href="#" class="Reaction">
+							<span class="Avatar Avatar--large Reaction__avatar">
+								<img src="/images/avatars/1722879350333.jpg" alt="" aria-hidden />
+							</span>
+							<img
+								class="Reaction__icon"
+								src="/images/icons/reaction-celebrate.svg"
+								alt=""
+								aria-hidden
+							/>
+							<span class="vh">Tracey celebrated this post.</span>
+						</a>
+					</li>
+					<li class="Reactions__listItem">
+						<a href="#" class="Reaction">
+							<span class="Avatar Avatar--large Reaction__avatar">
+								<img src="/images/avatars/1720453727219.jpg" alt="" aria-hidden />
+							</span>
+							<img
+								class="Reaction__icon"
+								src="/images/icons/reaction-love.svg"
+								alt=""
+								aria-hidden
+							/>
+							<span class="vh">JP loved this post.</span>
+						</a>
+					</li>
+					<li class="Reactions__listItem">
+						<a href="#" class="Reaction">
+							<span class="Avatar Avatar--large Reaction__avatar">
+								<img src="/images/avatars/1718639375762.jpg" alt="" aria-hidden />
+							</span>
+							<img
+								class="Reaction__icon"
+								src="/images/icons/reaction-like.svg"
+								alt=""
+								aria-hidden
+							/>
+							<span class="vh">Sarah liked this post.</span>
+						</a>
+					</li>
+					<li class="Reactions__listItem">
+						<a href="#" class="Reaction">
+							<span class="Avatar Avatar--large Reaction__avatar">
+								<img src="/images/avatars/1713538961204.jpg" alt="" aria-hidden />
+							</span>
+							<img
+								class="Reaction__icon"
+								src="/images/icons/reaction-support.svg"
+								alt=""
+								aria-hidden
+							/>
+							<span class="vh">Phillip supported this post.</span>
+						</a>
+					</li>
+					<li class="Reactions__listItem">
+						<a href="#" class="Reaction">
+							<span class="Avatar Avatar--large Reaction__avatar">
+								<img src="/images/avatars/1704411717563.jpg" alt="" aria-hidden />
+							</span>
+							<img
+								class="Reaction__icon"
+								src="/images/icons/reaction-like.svg"
+								alt=""
+								aria-hidden
+							/>
+							<span class="vh">Cemile liked this post.</span>
+						</a>
+					</li>
+					<li class="Reactions__listItem">
+						<a href="#" class="Reaction Avatar Avatar--large">...</a>
+					</li>
+				</ol>
+
+				<!-- BUTTONS -->
+				<menu class="ActionsMenu Post__actions">
+					<li class="ActionsMenu__item">
+						<button type="button" class="ActionButton">
+							<img
+								class="ActionButton__icon"
+								src="/images/icons/like-color.svg"
+								alt=""
+								aria-hidden
+							/>
+							<span>Like</span>
+						</button>
+					</li>
+					<li class="ActionsMenu__item">
+						<a href="#comment" class="ActionButton">
+							<img class="ActionButton__icon" src="/images/icons/comment.svg" alt="" aria-hidden />
+							<span>Comment</span>
+						</a>
+					</li>
+					<li class="ActionsMenu__item">
+						<button type="button" class="ActionButton">
+							<img class="ActionButton__icon" src="/images/icons/repost.svg" alt="" aria-hidden />
+							<span>Repost</span>
+						</button>
+					</li>
+					<li class="ActionsMenu__item">
+						<button type="button" class="ActionButton">
+							<img class="ActionButton__icon" src="/images/icons/send.svg" alt="" aria-hidden />
+							<span>Send</span>
+						</button>
+					</li>
+				</menu>
+
+				<!-- Text Input -->
+				<form class="CommentForm">
+					<div>
+						<span class="vh">Posting as Shawn</span>
+						<div class="Avatar Avatar--small CommentForm__avatar">
+							<img src="/images/avatars/1673620214389.jpg" alt="" aria-hidden />
+						</div>
+					</div>
+
+					<!-- text area div with borders -->
+					<div class="CommentForm__commentBox CommentBox">
+						<label for="comment" class="vh">Add comment</label>
+						<textarea class="CommentBox__input" name="comment" id="comment"></textarea>
+						<div class="CommentBox__buttons">
+							<div>
+								<button class="CommentBox__button" type="button">
+									<span class="vh">Add an emoji</span>
+									<img class="CommentBox__icon" src="/images/icons/emoji.svg" alt="" aria-hidden />
+								</button>
+
+								<!-- when styling, style the label:focus-within() -->
+								<!-- put same class as button previously -->
+								<label for="fileUpload" class="CommentBox__button">
+									<span class="vh">File upload</span>
+									<img class="CommentBox__icon" src="/images/icons/image.svg" alt="" aria-hidden />
+									<input type="file" name="fileUpload" id="fileUpload" class="vh" />
+								</label>
+							</div>
+							<button class="CommentBox__submit" type="submit">Comment</button>
+						</div>
+					</div>
+				</form>
+			</aside>
+		</article>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>

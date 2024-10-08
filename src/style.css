@@ -1,0 +1,411 @@
+@layer reset, page, component, overrides;
+
+@import '@acab/reset.css' layer(reset);
+
+@layer reset {
+	body {
+		max-inline-size: 37.5rem;
+		margin-inline: auto;
+		margin-block: 1.5rem;
+	}
+
+	/* stolen from /public/reset.css */
+	:where(.vh:not(:focus-within, :active)) {
+		clip-path: inset(50%) !important;
+		height: 1px !important;
+		width: 1px !important;
+		overflow: hidden !important;
+		position: absolute !important;
+		white-space: nowrap !important;
+		border: 0 !important;
+		user-select: none !important;
+	}
+}
+
+@layer page {
+	a {
+		text-decoration: none;
+		color: #0a66c2;
+		font-weight: 700;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	a:visited {
+		color: #8443ce;
+	}
+
+	.subtitle {
+		font-size: 0.8rem;
+		color: rgba(0, 0, 0, 0.75);
+		font-weight: 400;
+	}
+
+	.subtitle:visited {
+		color: rgba(0, 0, 0, 0.5);
+	}
+
+	a.subtitle:hover {
+		color: #0a66c2;
+	}
+}
+
+@layer component {
+	.Post p {
+		margin: 1rem 0 1rem;
+	}
+
+	.Post {
+		border: 1px solid lightgrey;
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.5rem;
+		color: #202020;
+		font-size: 0.875rem;
+	}
+
+	.Post__header {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.Post__author {
+		font-size: 0.875rem;
+	}
+
+	.Post__author-link::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	.Post__details {
+		line-height: 1.3;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.Post__followers {
+		opacity: 0.75;
+	}
+
+	.Metadata {
+		display: flex;
+		flex-direction: row;
+		gap: 0.25rem;
+		align-items: center;
+		opacity: 0.75;
+	}
+
+	.Metadata__description:not(:last-of-type)::after {
+		margin-left: 0.25rem;
+		content: '•';
+		color: inherit;
+	}
+
+	.Metadata__description > img {
+		/* 
+		make the svg #202020 
+		https://codepen.io/sosuke/pen/Pjoqqp	
+		*/
+		filter: brightness(0) saturate(100%) invert(0%) sepia(8%) saturate(334%) hue-rotate(334deg)
+			brightness(90%) contrast(75%);
+	}
+
+	.PopupModal {
+		position: absolute;
+		top: -1rem;
+		right: 0;
+		line-height: 0;
+	}
+
+	.PopupModal__trigger {
+		width: 2rem;
+		height: 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.1s ease-in;
+	}
+
+	.PopupModal__trigger:hover {
+		border-radius: 99rem;
+		background: rgb(239, 239, 239);
+	}
+
+	.Avatar {
+		display: block;
+		border-radius: 99rem;
+		overflow: hidden;
+		aspect-ratio: 1/1;
+		/* default size is 32px, 3rem */
+		width: 2rem;
+		/* height: 100%; */
+
+		/* img child */
+		& img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.Avatar--large {
+		width: 3rem;
+	}
+
+	.Avatar--square {
+		border-radius: 0;
+	}
+
+	.Gallery {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.15rem;
+	}
+
+	.Gallery__item {
+		position: relative;
+		aspect-ratio: 3/2;
+
+		& > img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.Gallery__item:first-of-type {
+		grid-column-start: 1;
+		grid-column-end: 4;
+	}
+
+	/* 4th image aka last one */
+	.Gallery__item:nth-of-type(4)::after {
+		/* place the overlay on the last image */
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		/* style content and bg */
+		background-color: rgba(0, 0, 0, 0.6);
+		content: '+' attr(data-image-overflow);
+		color: white;
+		font-size: 2rem;
+		font-weight: 400;
+
+		/* place content in center */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	/* hide all images after 4th image */
+	.Gallery__item:nth-of-type(1n + 5) {
+		display: none;
+	}
+
+	.Interactions {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 0.5rem 0;
+		border-bottom: 1px solid rgba(140, 140, 140, 0.2);
+	}
+
+	.Interactions__likes {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	/* IconStack, inside Interactions__likes */
+	.IconStack {
+		display: flex;
+		flex-direction: row;
+
+		/* set icons size */
+		& > img {
+			height: 1rem;
+			background-color: white;
+			border-radius: 99rem;
+		}
+
+		& > img:nth-of-type(1n + 1) {
+			margin-left: -0.25rem;
+		}
+	}
+
+	/* comments and response */
+	.Interactions__socials {
+		display: flex;
+		flex-direction: row;
+	}
+
+	/* separator */
+	.Interactions__socials > *:not(:last-of-type)::after {
+		content: '•';
+		margin: 0 0.25rem;
+		color: black;
+	}
+
+	.Post__reactions {
+		padding: 1rem 0;
+	}
+
+	.Reactions {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.Reactions__title {
+		font-weight: 500;
+	}
+
+	.Reactions__list {
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
+	}
+
+	.Reaction {
+		position: relative;
+		display: block;
+		background: none;
+	}
+
+	.Reactions__listItem:last-of-type {
+		& > * {
+			border: 1px solid rgba(140, 140, 140, 0.75);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.Reaction__icon {
+		position: absolute;
+		width: 1rem;
+		background-color: white;
+		border-radius: 99rem;
+		bottom: 0;
+		right: 0;
+	}
+
+	.ActionsMenu {
+		display: grid;
+		grid-template-columns: auto auto auto auto;
+	}
+
+	.ActionsMenu__item {
+		list-style-type: none;
+	}
+
+	.ActionButton {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding: 0.75rem 0;
+		gap: 0.5rem;
+		border-radius: 0.25rem;
+
+		/* set text style */
+		color: black;
+		opacity: 0.75;
+		font-weight: 700;
+		text-decoration: none;
+
+		transition: all 0.1s ease-out;
+
+		&:hover {
+			background-color: rgba(140, 140, 140, 0.1);
+			opacity: 1;
+		}
+	}
+
+	.ActionButton__icon {
+		width: 1.5rem;
+		height: auto;
+	}
+
+	.CommentForm {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.5rem;
+	}
+
+	.CommentBox {
+		border-radius: 1.5rem;
+		border: 1px solid rgba(140, 140, 140, 0.75);
+		display: grid;
+	}
+
+	.CommentBox:focus-within {
+		outline: 1px solid rgba(140, 140, 140, 0.75);
+	}
+
+	.CommentBox__input {
+		padding: 1rem;
+		border-radius: 1.5rem;
+		width: 100%;
+		border: none;
+		background: none;
+		resize: none;
+		outline: none;
+		box-shadow: none;
+	}
+
+	.CommentBox__buttons {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: end;
+	}
+
+	.CommentBox__buttons > div:has(.CommentBox__button) {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.CommentBox__button {
+		border-radius: 99rem;
+	}
+
+	.CommentBox__button:hover {
+		background-color: rgba(140, 140, 140, 0.2);
+	}
+
+	.CommentBox__icon {
+		padding: 0.5rem;
+		width: 2.5rem;
+	}
+
+	.CommentBox__submit {
+		font-weight: 700;
+		background-color: #0a66c2;
+		color: white;
+		height: fit-content;
+		padding: 0.5rem 0.75rem;
+		border-radius: 99rem;
+		margin: 0 0.5rem 0.5rem 0;
+	}
+}
+
+@layer overrides {
+}
